@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & register</title>
+    <!--for css-->
+    <link rel="stylesheet" href="{%static ''%}css/style.css">
+
+    <!--for bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div class="full-page">
+
+
+        <form class="form_blur" method="POST">
+            <h3 style="color: rgb(238, 229, 210);"><b>Login Here</b></h3>
+            {% csrf_token %}
+
+             <!--message showing start-->
+                {%if messages %} {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{message}}
+                    </div>
+                          {% endfor %} {% endif %}
+             <!--message showing end-->
+    
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" name="username">
+    
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" name="password">
+             
+            <button class="button_with_hover" type="submit">Log In</button>
+            <h5 style=" color :rgb(231, 231, 247);">don't have an account? <b><a href="{%url 'user_register' %}">Register</a></b> now</h5>
+           
+        </form>
+
+        
+    </div>
+
+</body>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>

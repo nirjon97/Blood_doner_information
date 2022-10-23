@@ -1,0 +1,113 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & register</title>
+    <!--for css-->
+    <link rel="stylesheet" href="{%static ''%}css/style.css">
+
+    <!--for bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div class="full-page">
+
+        <form class="form_create_doner" method="POST">
+          <a href="{%url 'Home'%}">
+            <h5 class="text-left " style="color: rgb(238, 229, 210);">Back</h5>
+     </a>
+          {% csrf_token %}
+            <h3 class="form_h3" style="color: rgb(238, 229, 210);"><b>Create Doner</b></h3>
+             <!--message showing-->
+        {%if messages %} {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{message}}
+        </div>
+        {% endfor %} {% endif %}
+            
+            <div class=""></div>
+            <label for="username">Username</label>
+            <input class="register_input" type="text" placeholder="Name" name="name">
+
+            <label for="username">Email</label>
+            <input class="register_input" type="email" placeholder="Email" name="email">
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName">Phone number</label>
+                    <input type="text" name="phone" placeholder="phone number" class="register_input" style="background-color:rgb(206, 166, 194);" />
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName">Age</label>
+                    <input type="text" name="age" placeholder="age" class="register_input"  style="background-color:rgb(206, 166, 194); color:rgb(217, 222, 226)"/>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label select-label" for="firstName">Gender</label><br>
+                    <select class="select register_input" name="gender" style="color: black; top: 13px;">
+                        <option value="1" disabled>Choose option</option>
+                        <option value="Male" style="color: black;">Male</option>
+                        <option value="Female" style="color: black;">Female</option>
+                        <option value="Others" style="color: black;">Others</option>
+                      </select>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                    <div class="form-outline">
+                        <label class="form-label select-label" for="firstName">Blood Group</label><br>
+                        <select class="select register_input" name="blood_group" style="color: black;">
+                            <option value="1" disabled>Choose option</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                          </select>
+                      </div>
+
+                </div>
+              </div>
+             
+            <button class="button_with_hover">Create</button>
+            
+           
+        </form>
+
+        
+    </div>
+
+</body>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>

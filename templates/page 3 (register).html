@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & register</title>
+    <!--for css-->
+    <link rel="stylesheet" href="{%static ''%}css/style.css">
+
+    <!--for bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div class="full-page">
+
+
+        <form class="form_register" method="POST">
+             {% csrf_token %}
+            <h3 class="form_h3" style="color: rgb(238, 229, 210);"><b>Register</b></h3>
+                            <!--message showing start-->
+                            {%if messages %} {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{message}}
+                            </div>
+                            {% endfor %} {% endif %}
+                            <!--message showing end-->
+    
+            <label for="username">Username</label>
+            <input class="register_input" type="text" name="username" placeholder="Name" id="username">
+
+            <label for="username">Email</label>
+            <input class="register_input" type="email" name="email" placeholder="Email">
+    
+            <label for="password">Password</label>
+            <input class="register_input" type="password" name="password1" placeholder="Password">
+
+            <label for="password">Repeat-Password</label>
+            <input class="register_input" type="password" name="password2" placeholder="Repeat-Password">
+             
+            <button class="button_with_hover" type="submit">Register</button>
+            <h5 class="text-center" style=" color :rgb(231, 231, 247);">Already have an account? <b><a href="{%url 'user_login' %}">Login</a></b> now</h5>
+           
+        </form>
+
+        
+    </div>
+
+</body>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>
